@@ -67,26 +67,13 @@
 </head>
 
 <body>
+    <!-- content-type: '{{ page.content-type }}' -->
+    <!-- permalink: '{{ page.permalink }}' -->
+    <!-- tags: '{{ page.tags }}' -->
     {%- include Header.html -%}
     <section class="section">
         <div class="columns is-centered">
             <!--- CASE 1 : Homepage-->
-
-            {%- if page.permalink == "/" -%}
-                    {%- if site.preferences.homepage.enabled -%}
-                            <!--- Show Homepage -->
-                            {%- include Homepage.html -%}
-                            <script src="/assets/js/modeswitcher.js"></script>
-                    {%- else -%}
-                            <!--- Show Feed Part -->
-                    <div class="column is-half">
-                            {%- include FeedContent.html -%}
-                            {%- include Feed.html -%}
-                            {%- include Footer.html -%}             
-                </div>
-                    {%- endif -%}
-            {%- endif -%}
-
             <!---CASE 2 : Notes & Blog Page-->
 
             {%- if page.content-type == "notes" 
@@ -95,11 +82,9 @@
                     <main>
                         <div class="note-page-section">
                             <div class="buttons for-back-home">
-                                {%- if site.preferences.homepage.enabled -%}
-                                <a class="button is-text button__page-back" onclick="window.history.back();">
+                                {%- if page.permalink == "/homepage" -%}
                                 {%- else -%}
-                                <a class="button is-text button__page-back" onclick="window.location.assign('/');">
-                                {%- endif -%}
+                                <a class="button is-text button__page-back" onclick="window.history.back();">
                                     <span class="icon is-small">
                                         <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -109,6 +94,7 @@
                                         </svg>
                                     </span>
                                 </a>
+                                {%- endif -%}
                             </div>
                         <h1>{{page.title}}</h1>
                         {%- include Content.html -%}
