@@ -129,7 +129,8 @@ defaults:
     values:
       layout: Post
       content-type: notes
-
+exclude:
+  - _notes/templates
 
 # Exclude from processing.
 # The following items will not be processed, by default.
