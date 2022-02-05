@@ -6,6 +6,10 @@ redirect_from:
 permalink: /homepage
 ---
 
+## Important, wiki moved
+Moved to Notion - [https://bit.ly/nlp-learners-wiki](https://bit.ly/nlp-learners-wiki)
+
+---
 
 ## Other Pages (chronological)
 - [[Goals of NLP Learners Group]]
